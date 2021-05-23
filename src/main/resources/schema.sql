@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS USERS (
 
 CREATE TABLE IF NOT EXISTS NOTE (
     noteid INT PRIMARY KEY auto_increment,
-    notetitle VARCHAR(20),
+    notetittle VARCHAR(20),
     notedescription VARCHAR (1000),
     userid INT,
     foreign key (userid) references USERS(userid)
