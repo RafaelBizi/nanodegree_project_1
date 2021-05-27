@@ -13,10 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -102,6 +99,14 @@ public class ResultController {
         }
 
         noteService.createNote(note);
+
+        return "redirect:/home";
+    }
+
+    @PutMapping("/note/edit")
+    public String createNote(@ModelAttribute Note note) {
+
+        noteService.updateNote(note);
 
         return "redirect:/home";
     }

@@ -1,10 +1,8 @@
 package com.udacity.jwdnd.course1.cloudstorage.mapping;
 
 import com.udacity.jwdnd.course1.cloudstorage.model.File;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+
 import java.util.*;
 
 @Mapper
@@ -18,4 +16,6 @@ public interface FileMapper {
     @Options(useGeneratedKeys = true, keyProperty = "fileId")
     int addFile(File file);
 
+    @Update("UPDATE FILE SET filename = #{filename} WHERE fileid = #{fileId}")
+    File updateFile(File file);
 }
