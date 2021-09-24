@@ -1,0 +1,36 @@
+
+g
+java:S1192;"QDefine a constant instead of duplicating this literal "redirect:/result" 4 times.(ÏÇôÖ
+«
+java:S4449>"Annotate the parameter with @javax.annotation.Nullable in method 'cleanPath' declaration, or make sure that null can not be passed as argument.(ó¹À…üÿÿÿÿ
+y
+java:S1128"^Remove this unused import 'com.udacity.jwdnd.course1.cloudstorage.services.CredentialService'.(–Óñ¼ÿÿÿÿÿ
+s
+java:S1128	"XRemove this unused import 'com.udacity.jwdnd.course1.cloudstorage.services.NoteService'.(’à”úÿÿÿÿ
+`
+java:S1128"KRemove this unused import 'org.springframework.core.io.FileSystemResource'.(°ü‘4
+d
+java:S1128"NRemove this unused import 'com.udacity.jwdnd.course1.cloudstorage.model.Note'.(€‰‘º
+q
+java:S1128"[Remove this unused import 'com.udacity.jwdnd.course1.cloudstorage.utils.GenerateRandomKey'.(øüýž
+j
+java:S1128"TRemove this unused import 'com.udacity.jwdnd.course1.cloudstorage.model.Credential'.(øºñˆ
+i	java:S116)"URename this field "UPLOAD_DIR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒË•U
+6
+java:S1170)"!Make this final field static too.(ÒË•U
+L
+java:S3416'"1Update this logger to use "FileController.class".(ËÉ’øÿÿÿÿ
+J
+java:S6212>"/Declare this local variable with "var" instead.(ó¹À…üÿÿÿÿ
+J
+java:S6212@"/Declare this local variable with "var" instead.(èšàµýÿÿÿÿ
+J
+java:S6212E"/Declare this local variable with "var" instead.(ïäšìùÿÿÿÿ
+J
+java:S6212J"/Declare this local variable with "var" instead.(¤Íßƒýÿÿÿÿ
+J
+java:S6212["/Declare this local variable with "var" instead.(¨ˆá§ùÿÿÿÿ
+J
+java:S6212c"/Declare this local variable with "var" instead.(¨ˆá§ùÿÿÿÿ
+C
+java:S1068)".Remove this unused "UPLOAD_DIR" private field.(ÒË•U

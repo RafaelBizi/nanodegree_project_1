@@ -15,9 +15,9 @@ public class NoteService {
         this.noteMapper = noteMapper;
     }
 
-    public int createNote(Note note){
+    public int createNote(Note note) {
         return noteMapper.addNote(
-                new Note(null, note.getNoteTittle(), note.getNoteDescription(), note.getUserId())
+                new Note(null, note.getNoteTitle(), note.getNoteDescription(), note.getUserId())
         );
     }
 
@@ -25,8 +25,19 @@ public class NoteService {
         return noteMapper.getAllNotes();
     }
 
-    public Note updateNote(Note note){
-        return noteMapper.updateNote(note);
+    public List<Note> getAllNotesByUserId(Integer id) {
+        return noteMapper.getAllNotesByUserId(id);
     }
 
+    public void updateNote(String title, String description, Integer id){
+        noteMapper.updateNote(title, description, id);
+    }
+
+    public Note getNoteById(Integer id){
+        return noteMapper.getNoteById(id);
+    }
+
+    public void deleteNote(Integer noteId) {
+        noteMapper.deleteNote(noteId);
+    }
 }

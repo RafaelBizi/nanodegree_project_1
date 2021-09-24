@@ -21,11 +21,23 @@ public class CredentialService {
                         credential.getPassword(), credential.getUsername(), credential.getUserId()));
     }
 
+    public Credential getCredentialById(Integer idCredential){
+        return credentialMapper.getCredentialById(idCredential);
+    }
+
     public List<Credential> getAllCredentials() {
         return credentialMapper.getAllCredentials();
     }
 
-    public Credential updateCredential(Credential credential){
-        return credentialMapper.updateCredential(credential);
+    public List<Credential> getAllCredentialsByUser(Integer userId) {
+        return credentialMapper.getAllCredentialsByUser(userId);
+    }
+
+    public void updateCredential(String url, String key, String password, String username, Integer id){
+        credentialMapper.updateCredential(url, username, password, id);
+    }
+
+    public void deleteCredential(Integer credentialId) {
+        credentialMapper.deleteCredential(credentialId);
     }
 }

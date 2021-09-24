@@ -10,13 +10,71 @@
     </head>
     <body class="p-3 mb-2 bg-light text-black">
         <div class="container justify-content-center w-50 p-3" style="margin-top: 5em;">
+            <div th:if="${fillTheFields}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Failed</h1>
+                <span>Please fill all the fields!. Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
             <div th:if="${uploadSuccess}" class="alert alert-success fill-parent">
                 <h1 class="display-5">Success</h1>
-                <span>Your changes were successfully saved. Click <a th:href="@{/home}">here</a> to continue.</span>
+                <span id="fileSuccessMsg">Your file was uploaded properly. Click <a th:href="@{/home}">here</a> to back to home page.</span>
             </div>
-            <div th:if="${uploadSuccess} == false" class="alert alert-danger fill-parent">
+            <div th:if="${uploadFailed}" class="alert alert-danger fill-parent">
                 <h1 class="display-5">Error</h1>
-                <span>Your changes were not saved. Click <a th:href="@{/home}">here</a> to continue.</span>
+                <span id="uploadFailed">Your upload was not saved, any error ocurred. Click <a th:href="@{/home}">here</a> to try again.</span>
+            </div>
+            <!-- <div th:if="${uploadDuplicatedNameError} == false" class="alert alert-danger fill-parent"> -->
+            <div th:if="${uploadDuplicatedNameError}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Error</h1>
+                <span id="uploadDuplicatedNameError">This filename already exists. Please re-name the file or select another. <br>Click <a th:href="@{/home}">here</a> to try again.</span>
+            </div>
+            <div th:if="${noteDeleteFailed}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Failed</h1>
+                <span>Please select any note an try again! Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
+            <div th:if="${noteDeleteSuccess}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span id="noteDeletedMsg">The note was deleted properly! Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
+            <div th:if="${noteCreatedSuccess}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span id="noteSuccessMsg">The note was created properly! Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
+            <div th:if="${noteUpdatedSuccess}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span id="noteUpdatedMsg">The note was updated properly! Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
+            <div th:if="${credentialUpdatedSuccess}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span>The credential was updated properly! Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
+            <div th:if="${credentialCreatedSuccess}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span id="credentialSuccessMsg">The credential was created properly! Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
+            <div th:if="${credentialDeleteSuccess}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span>The credential was deleted properly! Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
+            <div th:if="${credentialDeleteFailed}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Failed</h1>
+                <span>The credential was NOT deleted, anything wrong happened! Click <a th:href="@{/home}">here</a> to try again.</span>
+            </div>
+            <div th:if="${fileDeleteSuccess}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span>The file was deleted properly! Click <a th:href="@{/home}">here</a> to back to home page.</span>
+            </div>
+            <div th:if="${fileDeleteFailed}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Failed</h1>
+                <span>The file was NOT deleted, anything wrong happened! Click <a th:href="@{/home}">here</a> to try again.</span>
+            </div>
+            <div th:if="${file}">
+                <h1 class="display-5">--- FILE INFO ---<br></h1>
+                <p><b>File name:</b> <span th:text="${file.filename}">File not found message</span></p>
+                <p><b>File type:</b> <span th:text="${file.contentType}">Type not found</span></p>
+                <p><b>File size:</b> <span th:text="${file.fileSize}">Size not found</span></p>
+                <p><b>Download: </b><a th:href="@{|/file/download/${file.fileId}|}" target="_blank"><span th:text="${file.filename}"></span></a></p>
+                <a id="backBtn" th:href="@{/home}" class="btn btn-info">Back</a>
+<!--                <h5 class="display-5"><br><br> Click <a th:href="@{/home}">here</a> for back to HomePage.</h5>-->
             </div>
         </div>
     </body>

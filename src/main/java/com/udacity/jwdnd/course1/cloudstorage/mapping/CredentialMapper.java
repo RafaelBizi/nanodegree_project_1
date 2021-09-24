@@ -11,6 +11,12 @@ public interface CredentialMapper {
     @Select("SELECT * FROM CREDENTIAL")
     List<Credential> getAllCredentials();
 
+    @Select("SELECT * FROM CREDENTIAL WHERE userid = #{userId}")
+    List<Credential> getAllCredentialsByUser(Integer userId);
+
+    @Select("SELECT * FROM CREDENTIAL WHERE credentialid = #{credentialId}")
+    Credential getCredentialById(int credentialId);
+
     @Insert("INSERT INTO CREDENTIAL (url, username, key, password, userid) " +
             "VALUES (#{url}, #{username}, #{key}, #{password}, #{userId})")
     @Options(useGeneratedKeys = true, keyProperty = "credentialId")
@@ -18,5 +24,8 @@ public interface CredentialMapper {
 
     @Update("UPDATE CREDENTIAL SET url = #{url}, username = #{username}, password = #{password} " +
             "WHERE credentialid = #{credentialId}")
-    Credential updateCredential(Credential credential);
+    void updateCredential(String url, String username, String password, Integer credentialId);
+
+    @Delete("DELETE FROM CREDENTIAL WHERE credentialId = #{credentialId}")
+    void deleteCredential(Integer credentialId);
 }
